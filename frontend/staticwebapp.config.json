@@ -7,13 +7,22 @@
         {
             "route": "/authenticated/*",
             "allowedRoles": [ "authenticated" ]
-        },{
+        },
+        {
+              "route": "/login",
+              "redirect": "/.auth/login/aad?post_login_redirect_uri=https://polite-smoke-09dd4e610.2.azurestaticapps.net/.auth/login/aad/callback"
+        },
+        {
             "route": "/",
             "allowedRoles": [ "anonymous" ]
         },
         {
             "route":"/.auth/*",
             "allowedRoles": ["anonymous"]
+        },
+        {
+            "route":"/api/message2",
+            "allowedRoles": ["admin"]
         }
     ],
     "responseOverrides": {
