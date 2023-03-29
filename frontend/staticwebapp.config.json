@@ -7,6 +7,13 @@
         {
             "route": "/authenticated/*",
             "allowedRoles": [ "authenticated" ]
+        },{
+            "route": "/",
+            "allowedRoles": [ "anonymous" ]
+        },
+        {
+            "route":"/.auth/*",
+            "allowedRoles": ["anonymous"]
         }
     ],
     "auth": {
