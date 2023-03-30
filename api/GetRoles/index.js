@@ -28,7 +28,7 @@ module.exports = async function (context, req) {
 
     roles.push("test");
     //roles.push(clientPrincipal.userId);
-    roles.push(JSON.stringify(user));
+    roles.push(user.accessToken);
     roles.push("test2");
     
 
