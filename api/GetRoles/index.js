@@ -21,13 +21,13 @@ module.exports = async function (context, req) {
     }
 
     // get role information from req
-    const header = req.headers['x-ms-client-principal'];
-    const encoded = Buffer.from(header, 'base64');
-    const decoded = encoded.toString('ascii');
-    const clientPrincipal = JSON.parse(decoded);
+    // const header = req.headers['x-ms-client-principal'];
+    // const encoded = Buffer.from(header, 'base64');
+    // const decoded = encoded.toString('ascii');
+    // const clientPrincipal = JSON.parse(decoded);
 
     roles.push("test");
-    roles.push(clientPrincipal.userId);
+    //roles.push(clientPrincipal.userId);
     
 
     context.res.json({
