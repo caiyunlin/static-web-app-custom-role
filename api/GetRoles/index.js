@@ -60,7 +60,7 @@ async function isUserInGroup(groupId, bearerToken) {
     return matchingGroups.length > 0;
 }
 
-async function isUserInRole(roleId){
+async function isUserInRole(roleId, bearerToken){
 
     
     const url = new URL("https://graph.microsoft.com/v1.0/users/9af537c7-a986-42e0-826a-c5ba8aac61f3/appRoleAssignments");
