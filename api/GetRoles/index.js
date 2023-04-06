@@ -2,14 +2,6 @@ const fetch = require('node-fetch').default;
 
 
 
-
-
-// add role names to this object to map them to group ids in your AAD tenant
-const roleGroupMappings = {
-    'admin': '1b9391b1-2ab5-4f91-8b9e-d46d49f6c39f',
-    'reader': '33bb071c-118d-40d1-a5d7-7ced5900b973'
-};
-
 const roleAppRoleMapping = {
     'admin' : '32e048a8-d3ec-46e3-a96a-5dbb35973cfc'
 }
@@ -41,29 +33,12 @@ module.exports = async function (context, req) {
     });
 }
 
-async function isUserInGroup(groupId, bearerToken) {
-    const url = new URL('https://graph.microsoft.com/v1.0/me/memberOf');
-    url.searchParams.append('$filter', `id eq '${groupId}'`);
-    const response = await fetch(url, {
-        method: 'GET',
-        headers: {
-            'Authorization': `Bearer ${bearerToken}`
-        },
-    });
 
-    if (response.status !== 200) {
-        return false;
-    }
-
-    const graphResponse = await response.json();
-    const matchingGroups = graphResponse.value.filter(group => group.id === groupId);
-    return matchingGroups.length > 0;
-}
 
 async function isUserInRole(roleId, bearerToken){
 
     
-    const url = new URL("https://graph.microsoft.com/v1.0/users/9af537c7-a986-42e0-826a-c5ba8aac61f3/appRoleAssignments");
+    const url = new URL("https://graph.microsoft.com/v1.0/me/appRoleAssignments");
     const response = await fetch(url, {
         method: 'GET',
         headers: {
