@@ -3,12 +3,11 @@ module.exports = async function (context, req) {
   const encoded = Buffer.from(header, 'base64');
   const decoded = encoded.toString('ascii');
 
-  const user = req.body || {};
+  //const user = req.body || {};
 
   context.res = {
     body: {
       clientPrincipal: JSON.parse(decoded) //,accessToken: user.accessToken
-      , user:JSON.stringify(user)
     },
   };
 };
