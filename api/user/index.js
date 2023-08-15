@@ -7,8 +7,8 @@ module.exports = async function (context, req) {
 
   context.res = {
     body: {
-      clientPrincipal: JSON.parse(decoded),
-      accessToken: user.accessToken
+      clientPrincipal: JSON.parse(decoded) //,accessToken: user.accessToken
+      , user:JSON.stringify(user)
     },
   };
 };
