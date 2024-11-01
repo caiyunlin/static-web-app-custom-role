@@ -23,6 +23,10 @@
         {
             "route":"/api/message2",
             "allowedRoles": ["admin"]
+        },
+        {
+            "route": "/user/*",
+            "allowedRoles": [ "authenticated" ]
         }
     ],
     "responseOverrides": {
