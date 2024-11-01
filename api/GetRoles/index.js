@@ -21,11 +21,11 @@ module.exports = async function (context, req) {
     // roles.push(user.accessToken); // output accessToken to role for testing
     // roles.push("test2");
 
-    for (const [role, groupId] of Object.entries(roleAppRoleMapping)) {
-        if (await isUserInRole(groupId, user.accessToken)) {
-            roles.push(role);
-        }
-    }
+    // for (const [role, groupId] of Object.entries(roleAppRoleMapping)) {
+    //     if (await isUserInRole(groupId, user.accessToken)) {
+    //         roles.push(role);
+    //     }
+    // }
     
 
     context.res.json({
