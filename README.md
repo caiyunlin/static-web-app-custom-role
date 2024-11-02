@@ -9,3 +9,4 @@ Test : https://proud-ground-0250abc00.5.azurestaticapps.net
 - Update GetRoles for custom role usage
 - For 500 errors, try to test it from local, navigate to api folder and run "func start" test firstly
 - api/package.json, remove '"type": "module",' for Node 20 + 
+- Test login with out Logout `Clean up the cookie`
