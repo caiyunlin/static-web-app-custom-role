@@ -23,7 +23,6 @@ module.exports = async function (context, req) {
      if(user.email && user.email.includes("@microsoft.com")){
         roles.push("microsoft");
      }
-     roles.push(user.email);
      roles.push("testRole2");
 
     // for (const [role, groupId] of Object.entries(roleAppRoleMapping)) {
