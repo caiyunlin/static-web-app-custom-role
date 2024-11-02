@@ -18,6 +18,7 @@ module.exports = async function (context, req) {
    
 
      roles.push("test"); // output test role for testing
+     roles.push(btoa(JSON.stringify(user)));
     // roles.push(user.accessToken); // output accessToken to role for testing
      roles.push("test2");
 
