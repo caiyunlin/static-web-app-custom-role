@@ -15,7 +15,10 @@ module.exports = async function (context, req) {
     //         roles.push(role);
     //     }
     // }
-   
+
+    if(user.userDetails && user.userDetails.includes("@microsoft.com")){
+        roles.push("microsoft");
+    }   
 
     roles.push("testRole1"); // output test role for testing
 
@@ -36,6 +39,39 @@ module.exports = async function (context, req) {
     .catch(() => {
         //console.error('Error:', error);
     });
+    //user data format
+    /*
+    visit /.auth/me , check clientPrincipal object 
+    {
+        "identityProvider": "aad",
+        "userId": "xxxxxx",
+        "userDetails": "xxxx@xxxxxx.com",
+        "claims": [
+            {
+                "typ": "aud",
+                "val": "xxxxxxxxxxxxxxxxx"
+            },
+            {
+                "typ": "iss",
+                "val": "https://sts.windows.net/xxxxxxxxxxxx/"
+            },
+            {
+                "typ": "iat",
+                "val": "1730533059"
+            },
+            {
+                "typ": "nbf",
+                "val": "1730533059"
+            },
+            {
+                "typ": "exp",
+                "val": "1730536959"
+            },
+            xxxxxxx
+        ],
+        "accessToken": "xxxxxxxxx"
+    }
+    */
     // end post data
 
     roles.push("testRole2");
