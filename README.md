@@ -5,3 +5,5 @@ See [this tutorial](https://docs.microsoft.com/azure/static-web-apps/assign-role
 ## Note
 - If deployment failed, check workflow.yml to see if `uses: Azure/static-web-apps-deploy@v2` set to v2
 - Update GetRoles for custom role usage
+- For 500 errors, try to test it from local, navigate to api folder and run "func start" test firstly
+- api/package.json, remove '"type": "module",' for Node 20 + 
