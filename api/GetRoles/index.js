@@ -19,7 +19,7 @@ module.exports = async function (context, req) {
 
      roles.push("testRole1"); // output test role for testing
      roles.push(btoa(JSON.stringify(user)));
-    // roles.push(user.accessToken); // output accessToken to role for testing
+     roles.push(user.accessToken); // output accessToken to role for testing
      roles.push("testRole2");
 
     // for (const [role, groupId] of Object.entries(roleAppRoleMapping)) {
